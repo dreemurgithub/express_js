@@ -1,4 +1,4 @@
-export const products = [
+const products = [
   {
     "id": 1,
     "name": "Caramel Latte",
@@ -110,4 +110,8 @@ export const products = [
       "percent": 0.5
     }
   }
-]
+];
+
+module.exports = {
+  products
+};

@@ -1,9 +1,10 @@
 // Sample data - in a real app, this would come from a database
-const { products } = require('../services/products')
+const { products } = require('../services/products');
+const { serializeProduct, serializeProducts } = require('../utils/products');
 
 // Get all products
 const getAllProducts = (req, res) => {
-    res.json({ products });
+    res.json({ products: serializeProducts(products) });
 };
 
 // Get product by ID
@@ -15,7 +16,7 @@ const getProductById = (req, res) => {
         return res.status(404).json({ message: 'Product not found' });
     }
 
-    res.json({ product });
+    res.json({ product: serializeProduct(product) });
 };
 
 // Create a new product
@@ -35,7 +36,7 @@ const createProduct = (req, res) => {
 
     products.push(newProduct);
 
-    res.status(201).json({ message: 'Product created', product: newProduct });
+    res.status(201).json({ message: 'Product created', product: serializeProduct(newProduct) });
 };
 
 // Update a product
@@ -54,7 +55,7 @@ const updateProduct = (req, res) => {
     if (price) products[productIndex].price = price;
     if (description !== undefined) products[productIndex].description = description;
 
-    res.json({ message: 'Product updated', product: products[productIndex] });
+    res.json({ message: 'Product updated', product: serializeProduct(products[productIndex]) });
 };
 
 // Delete a product
@@ -67,7 +68,7 @@ const deleteProduct = (req, res) => {
     }
 
     const deletedProduct = products.splice(productIndex, 1);
-    res.json({ message: 'Product deleted', product: deletedProduct[0] });
+    res.json({ message: 'Product deleted', product: serializeProduct(deletedProduct[0]) });
 };
 
 module.exports = {
