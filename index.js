@@ -10,11 +10,14 @@ app.use(cors());
 // Routes
 const productRoutes = require('./routes/products');
 const categoryRoutes = require('./routes/categories');
+const variantRoutes = require('./routes/variants');
 
 // Use product routes
 app.use('/products', productRoutes);
 // Use category routes
 app.use('/categories', categoryRoutes);
+// Use variant routes
+app.use('/variants', variantRoutes);
 
 // Default route
 app.get('/', (req, res) => {
