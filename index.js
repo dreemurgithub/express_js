@@ -12,6 +12,7 @@ const productRoutes = require('./routes/products');
 const categoryRoutes = require('./routes/categories');
 const variantRoutes = require('./routes/variants');
 const cartRoutes = require('./routes/cart');
+const orderRoutes = require('./routes/order');
 
 // Use product routes
 app.use('/products', productRoutes);
@@ -21,6 +22,8 @@ app.use('/categories', categoryRoutes);
 app.use('/variants', variantRoutes);
 // Use cart routes
 app.use('/cart', cartRoutes);
+// Use order routes
+app.use('/order', orderRoutes);
 
 // Default route
 app.get('/', (req, res) => {
