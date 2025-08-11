@@ -8,7 +8,7 @@ const {
   deleteOrder
 } = require('../controllers/order');
 
-// GET /order - Get all orders
+// GET /order - Get all orders or filter by username if provided
 router.get('/', getAllOrders);
 
 // GET /order/:id - Get a specific order by ID

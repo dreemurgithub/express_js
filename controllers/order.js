@@ -1,8 +1,15 @@
 // Controller for order routes
 const { orders } = require('../services/order');
 
-// GET /order - Return all orders
+// GET /order - Return all orders or filter by username if provided
 const getAllOrders = (req, res) => {
+  const { username } = req.query;
+  
+  if (username) {
+    const userOrders = orders.filter(order => order.username === username);
+    return res.json(userOrders);
+  }
+  
   res.json(orders);
 };
 
