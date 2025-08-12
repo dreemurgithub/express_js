@@ -1,5 +1,6 @@
 // Controller for order routes
 const { orders } = require('../services/order');
+const randomizeOrderStatus = require('../utils/orderHelp').randomizeOrderStatus;
 
 // GET /order - Return all orders or filter by username if provided
 const getAllOrders = (req, res) => {
@@ -7,10 +8,10 @@ const getAllOrders = (req, res) => {
   
   if (username) {
     const userOrders = orders.filter(order => order.username === username);
-    return res.json(userOrders);
+    return res.json(userOrders.map(order => randomizeOrderStatus(order)));
   }
   
-  res.json(orders);
+  res.json(orders.map(order => randomizeOrderStatus(order)));
 };
 
 // GET /order/:id - Return a specific order by ID

@@ -104,7 +104,7 @@ const orders = [
     ],
     note: "something",
     restaurantId: "restaurant1",
-    status: "Chuẩn bị",
+    status: "Đang chuẩn bị",
     username: "tester",
     id: "abcd",
   },
@@ -497,7 +497,7 @@ const orders = [
     ],
     note: "something else",
     restaurantId: "restaurant2",
-    status: "Chuẩn bị",
+    status: "Đã đặt",
     username: "tester2",
     id: "1234"
   },
